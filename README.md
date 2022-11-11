@@ -22,7 +22,6 @@ Install the npm packages described in the package.json and verify that it works:
 ```
 npm install
 npm start
-
 ```
 
 Start the dev server by running the command below. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files:
