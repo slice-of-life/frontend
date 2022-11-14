@@ -10,12 +10,14 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './UI/sidebar/sidebar.component';
-
+import { PostComponent } from './UI/post/post.component';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
     FeedComponent,
     SidebarComponent,
+    PostComponent,
     
   ],
   imports: [
@@ -26,6 +28,7 @@ import { SidebarComponent } from './UI/sidebar/sidebar.component';
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
