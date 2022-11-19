@@ -12,6 +12,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './UI/sidebar/sidebar.component';
 import { PostComponent } from './UI/post/post.component';
 import {MatCardModule} from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,12 +25,14 @@ import {MatCardModule} from '@angular/material/card';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule, 
     MatSidenavModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
