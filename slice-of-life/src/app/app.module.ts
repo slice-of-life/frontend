@@ -13,6 +13,7 @@ import { SidebarComponent } from './UI/sidebar/sidebar.component';
 import { PostComponent } from './UI/post/post.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { FeedService } from './data/feed.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     
   ],
-  providers: [],
+  providers: [FeedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
