@@ -1,6 +1,6 @@
 export class Task {
     title : String;
-    taskID: String;
+    task_id: String;
     description: String;
-    active: String;
+    active: boolean;
 };

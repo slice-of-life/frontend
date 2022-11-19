@@ -1,10 +1,11 @@
 import { Task } from "./task.model";
+import { User } from "./user.model";
 export class Post {
-    postID : string;
-    imageURL : string;
-    text : string;
-    author : string;
-    timestamp : string;
-    task : Task;
+    post_id : string;
+    image : string;
+    free_text : string;
+    posted_by : User;
+    created_at : Date;
+    completes : Task;
     
 };
