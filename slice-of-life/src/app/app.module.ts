@@ -14,6 +14,16 @@ import { PostComponent } from './UI/post/post.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { FeedService } from './data/feed.service';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+import {MatExpansionModule} from '@angular/material/expansion';
+import { CommentComponent } from './UI/comment/comment.component';
+import { PostService } from './data/post.service';
+import { ThreadComponent } from './UI/thread/thread.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +31,8 @@ import { FeedService } from './data/feed.service';
     FeedComponent,
     SidebarComponent,
     PostComponent,
-    
+    CommentComponent,
+    ThreadComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +44,15 @@ import { FeedService } from './data/feed.service';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatExpansionModule,
+    MatGridListModule
     
   ],
-  providers: [FeedService],
+  providers: [FeedService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

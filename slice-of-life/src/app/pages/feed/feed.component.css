@@ -6,3 +6,9 @@
   left: 25%;
   right: 25%;
 }
+.spinner {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  right: 50%;
+}

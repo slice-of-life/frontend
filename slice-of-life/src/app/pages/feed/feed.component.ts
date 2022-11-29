@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedService } from 'src/app/data/feed.service';
 import { Feed } from 'src/app/models/feed.model';
-import { Post } from 'src/app/models/post.model';
+
 @Component({
   selector: 'feed',
   templateUrl: './feed.component.html',
@@ -12,12 +12,16 @@ export class FeedComponent implements OnInit {
   constructor(private feedService: FeedService) {}
 
   ngOnInit(): void {
+    this.fetchFeed();
+  }
+
+  fetchFeed() {
     this.feedService.getFeed().subscribe(
       (data: Feed) =>
-        (this.feed = {
+        this.feed = {
           next: data.next,
           page: data.page,
-        })
+        }
     );
   }
 }

@@ -8,3 +8,11 @@
 .example-header-image {
   background-size: cover;
 }
+
+.mat-card-footer {
+  padding-bottom: 15px;
+}
+.mat-card-actions {
+  margin: 0 auto;
+  text-align: center
+}
