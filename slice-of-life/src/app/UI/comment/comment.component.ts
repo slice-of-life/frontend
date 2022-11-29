@@ -8,7 +8,7 @@ import { CommentThread } from 'src/app/models/comment-thread.model';
 })
 export class CommentComponent implements OnInit {
   @Input() thread : CommentThread;
-
+  showReplies = false;
 
   constructor() { }
 
