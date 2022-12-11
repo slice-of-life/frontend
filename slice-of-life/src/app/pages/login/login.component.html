@@ -1,0 +1,43 @@
+<form [formGroup]="login" class="form" (ngSubmit)="loginUser()">
+    <h1>Slice Of Life</h1>
+    <h2>Login</h2>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Handle</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder=""
+        required
+        formControlName="handle"
+      />
+      <mat-error *ngIf="login.get('handle').invalid">{{
+        getErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder=""
+        required
+        formControlName="password"
+      />
+      <mat-error *ngIf="login.get('password').invalid">{{
+        getErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+  </p>
+
+  <button
+    [disabled]="!login.valid"
+    mat-raised-button
+    color="primary"
+    type="submit"
+  >
+    Submit
+  </button>
+</form>
