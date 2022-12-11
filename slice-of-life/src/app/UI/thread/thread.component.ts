@@ -12,7 +12,9 @@ export class ThreadComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {  
-    this.comments = this.threads.map((thread) => thread.comment);
+    if(this.comments){
+      this.threads.map((thread) => thread.comment);
+    }
   }
 
 }
