@@ -1,2 +1,7 @@
-
-<comment *ngFor="let thread of threads" [thread]="thread"></comment> 
+<div class="comments" *ngFor="let thread of threads">
+  <comment
+    [comment]="thread.comment"
+    [depth]="depth ? depth : 0"
+    [responses]="thread.responses"
+  ></comment>
+</div>

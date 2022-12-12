@@ -4,21 +4,19 @@ import { CommentThread } from 'src/app/models/comment-thread.model';
 @Component({
   selector: 'comment',
   templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.css']
+  styleUrls: ['./comment.component.css'],
 })
 export class CommentComponent implements OnInit {
-
-  @Input() thread : CommentThread;
+  @Input() comment: Comment;
+  @Input() depth: number;
+  @Input() responses: CommentThread[];
   showReplies = false;
-  
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor() {}
 
-  }
-  handleReplies(event : MouseEvent) {
+  ngOnInit(): void {}
+  handleReplies(event: MouseEvent) {
     event.preventDefault();
     this.showReplies = !this.showReplies;
   }
-
 }
