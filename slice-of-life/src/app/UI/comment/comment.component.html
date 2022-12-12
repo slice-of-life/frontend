@@ -7,7 +7,7 @@
   <div class="div2">
     <b>@{{thread.comment.comment_by.handle}}</b
     ><br />{{thread.comment.free_text}}<br />
-    <a href="#">Reply    </a><a id="viewReplies" (click)="showReplies=true;" href="#">View Replies</a>
+    <a >Reply    </a><a href="" id="viewReplies" (click)="handleReplies($event)" >View Replies</a>
   </div>
 </div>
 <div *ngIf="showReplies">
@@ -20,7 +20,7 @@
         <div class="div2">
           <b>@{{response.comment.comment_by.handle}}</b
           ><br />{{response.comment.free_text}}<br />
-          <a href="#">Reply    </a><a id="viewReplies" href="#">View Replies</a>
+          <a>Reply    </a><a id="viewReplies"  (click)="handleReplies($event)">View Replies</a>
         </div>
       </div>
 </div>

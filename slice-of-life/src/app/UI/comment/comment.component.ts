@@ -7,13 +7,18 @@ import { CommentThread } from 'src/app/models/comment-thread.model';
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
+
   @Input() thread : CommentThread;
   showReplies = false;
-
+  
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+  handleReplies(event : MouseEvent) {
+    event.preventDefault();
+    this.showReplies = !this.showReplies;
   }
 
 }
