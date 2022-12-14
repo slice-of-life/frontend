@@ -9,3 +9,8 @@
     display: block;
   }
 
+mat-card-actions {
+  text-align: left;
+  margin-left : 1%;
+}
+
