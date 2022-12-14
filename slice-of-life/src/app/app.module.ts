@@ -30,6 +30,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginService } from './data/login.service';
 import { SignupService } from './data/signup.service';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SignupService } from './data/signup.service';
     CommentComponent,
     ThreadComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
