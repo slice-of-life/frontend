@@ -53,8 +53,10 @@
       />
       <mat-error *ngIf="signupForm.get('email').invalid">{{ getErrorMessage() }}</mat-error>
     </mat-form-field>
-        <button [disabled]="!signupForm.valid" mat-raised-button color="primary" type="submit"  >Sign Up</button>
+    <mat-card-actions>
+      <button [disabled]="!signupForm.valid" mat-raised-button color="primary" type="submit">Sign Up</button>
+    </mat-card-actions>
 </form>
+<alert *ngIf="responseType && responseMessage" [alertType]="responseType" [alertMessage]="responseMessage"></alert>
 </mat-card-content>
-
 </mat-card>
