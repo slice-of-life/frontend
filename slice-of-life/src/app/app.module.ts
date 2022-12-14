@@ -31,6 +31,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginService } from './data/login.service';
 import { SignupService } from './data/signup.service';
 import { HomeComponent } from './pages/home/home.component';
+import { AlertComponent } from './UI/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HomeComponent } from './pages/home/home.component';
     ThreadComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
