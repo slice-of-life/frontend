@@ -75,7 +75,8 @@
               "browserTarget": "slice-of-life:build:production"
             },
             "development": {
-              "browserTarget": "slice-of-life:build:development"
+              "browserTarget": "slice-of-life:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

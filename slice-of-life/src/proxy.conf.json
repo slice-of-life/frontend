@@ -1,0 +1,8 @@
+{
+    "/api": {
+        "target": "https://sliceoflife-webservice-d7uk9.ondigitalocean.app",
+        "secure": true,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
