@@ -42,9 +42,9 @@ describe('SignupService', () => {
     const req = httpTestingController.expectOne(Config.BASE_URL + '/api/v1/users/account/new');
     expect(req.request.method).toEqual('POST');
     expect(req.request.body).toEqual(user);
-    req.flush({ status: 'CREATED' });
+    req.flush({ status: `CREATED ${user.handle}` });
     tick();
-    expect(response).toEqual({ status: 'CREATED' });
+    expect(response).toEqual({ status: 'CREATED handle' });
   }));
 
   it('should return an error if the handle is unavailable', fakeAsync(() => {
