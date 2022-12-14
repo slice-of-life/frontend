@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
-const baseURL =
-  'https://sliceoflife-webservice-d7uk9.ondigitalocean.app/api/v1/';
+import { Config } from '../config'
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +9,7 @@ const baseURL =
 export class SignupService {
   constructor(private http: HttpClient) {}
   createUser(user: User) {
-    return this.http.post(baseURL + 'users/account/new', {
+    return this.http.post(Config.BASE_URL + '/api/v1/users/account/new', {
       'handle' : user.handle,
       'email' : user.email,
       'password' : user.password,

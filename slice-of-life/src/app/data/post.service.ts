@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-const baseURL ='https://sliceoflife-webservice-d7uk9.ondigitalocean.app/api/v1/';
+import { Config } from '../config';
+
 
   @Injectable({
     providedIn: 'root',
@@ -9,11 +10,11 @@ const baseURL ='https://sliceoflife-webservice-d7uk9.ondigitalocean.app/api/v1/'
     constructor(private http: HttpClient) {}
   
   getComments(post_id : number) {
-    const commentsEndpoint = baseURL + 'slices/' + post_id + '/comments';
+    const commentsEndpoint = Config.BASE_URL + '/api/v1/slices/' + post_id + '/comments';
     return this.http.get(commentsEndpoint);
   }
   getReactions(post_id : number) {
-    const reactionsEndpoint = baseURL + 'slices/' + post_id + '/reactions';
+    const reactionsEndpoint = Config.BASE_URL + '/api/v1/slices/' + post_id + '/reactions';
     return this.http.get(reactionsEndpoint);
   }
 }

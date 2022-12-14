@@ -6,8 +6,8 @@ import {
 import { SignupService } from './signup.service';
 import { User } from '../models/user.model';
 import { fakeAsync, tick } from '@angular/core/testing';
-const baseURL =
-  'https://sliceoflife-webservice-d7uk9.ondigitalocean.app/api/v1/';
+import { Config } from '../config';
+
 
 describe('SignupService', () => {
   let signupService: SignupService;
@@ -39,7 +39,7 @@ describe('SignupService', () => {
     let response;
     signupService.createUser(user).subscribe((res) => (response = res));
 
-    const req = httpTestingController.expectOne(baseURL + 'users/account/new');
+    const req = httpTestingController.expectOne(Config.BASE_URL + '/api/v1/users/account/new');
     expect(req.request.method).toEqual('POST');
     expect(req.request.body).toEqual(user);
     req.flush({ status: 'CREATED' });
@@ -64,7 +64,7 @@ describe('SignupService', () => {
       },
     });
 
-    const req = httpTestingController.expectOne(baseURL + 'users/account/new');
+    const req = httpTestingController.expectOne(Config.BASE_URL + '/api/v1/users/account/new');
     expect(req.request.method).toEqual('POST');
     expect(req.request.body).toEqual(user);
     req.flush("", {
