@@ -33,7 +33,6 @@ export class SignupComponent implements OnInit {
     return 'You must enter a value';
   }
   signupUser() {
-    console.log('singing up handle: ' + this.signupForm.get('handle').value);
     this.signupService
       .createUser({
         handle: this.signupForm.get('handle').value,
@@ -44,14 +43,12 @@ export class SignupComponent implements OnInit {
       })
       .subscribe({
         next: (response) => {
-          console.log('Response: ' + response);
           this.responseMessage = 'Success acount created';
           this.responseType = AlertType.Success;
 
         },
         error: (error) => {
-          console.log('Error: ' + error);
-          this.responseMessage = 'Handle is unavailable, try another handle.';
+          this.responseMessage = error.statusText;
           this.responseType = AlertType.Failure;
         },
       });
