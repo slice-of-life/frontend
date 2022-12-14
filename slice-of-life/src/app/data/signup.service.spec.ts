@@ -6,7 +6,6 @@ import {
 import { SignupService } from './signup.service';
 import { User } from '../models/user.model';
 import { fakeAsync, tick } from '@angular/core/testing';
-import { Config } from '../config';
 
 
 describe('SignupService', () => {
@@ -35,13 +34,19 @@ describe('SignupService', () => {
       first_name: 'first_name',
       last_name: 'last_name',
     };
-
+    const formData = new FormData();
+    formData.append('handle', user.handle);
+    formData.append('email', user.email);
+    formData.append('password', user.password);
+    formData.append('first_name', user.first_name);
+    formData.append('last_name', user.last_name);
+  
     let response;
     signupService.createUser(user).subscribe((res) => (response = res));
 
-    const req = httpTestingController.expectOne(Config.BASE_URL + '/api/v1/users/account/new');
+    const req = httpTestingController.expectOne('/api/v1/users/account/new');
     expect(req.request.method).toEqual('POST');
-    expect(req.request.body).toEqual(user);
+    expect(req.request.body).toEqual(formData);
     req.flush({ status: `CREATED ${user.handle}` });
     tick();
     expect(response).toEqual({ status: 'CREATED handle' });
@@ -55,18 +60,25 @@ describe('SignupService', () => {
       first_name: 'first_name',
       last_name: 'last_name',
     };
+        let testResponse;
+        const formData = new FormData();
+        formData.append('handle', user.handle);
+        formData.append('email', user.email);
+        formData.append('password', user.password);
+        formData.append('first_name', user.first_name);
+        formData.append('last_name', user.last_name);
+      
 
     let testError;
-    let testResponse;
     signupService.createUser(user).subscribe({
       error: (err) => {
         testError = err;
       },
     });
 
-    const req = httpTestingController.expectOne(Config.BASE_URL + '/api/v1/users/account/new');
+    const req = httpTestingController.expectOne('/api/v1/users/account/new');
     expect(req.request.method).toEqual('POST');
-    expect(req.request.body).toEqual(user);
+    expect(req.request.body).toEqual(formData);
     req.flush("", {
       status: 403,
       statusText: 'handle not available'
