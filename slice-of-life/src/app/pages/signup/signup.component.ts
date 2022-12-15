@@ -1,4 +1,4 @@
-import { HttpStatusCode } from '@angular/common/http';
+import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignupService } from 'src/app/data/signup.service';
@@ -47,10 +47,10 @@ export class SignupComponent implements OnInit {
           this.responseType = AlertType.Success;
 
         },
-        error: (error) => {
-          this.responseMessage = error.statusText;
+        error: (error : HttpErrorResponse) => {
+          this.responseMessage = error.status === 401 ? 'Handle not available, please try another handle.' : error.statusText;
           this.responseType = AlertType.Failure;
-        },
+        },  
       });
   }
 }
