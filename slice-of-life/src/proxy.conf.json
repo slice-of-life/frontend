@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "https://sliceoflife-webservice-d7uk9.ondigitalocean.app",
+        "target": "https://5b7c7532-f034-4029-a7da-9aac5062e32f.mock.pstmn.io",
         "secure": true,
         "logLevel": "debug",
         "changeOrigin": true
