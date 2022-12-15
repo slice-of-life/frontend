@@ -31,7 +31,7 @@ export class AlertComponent implements OnInit {
       case AlertType.Failure:
         return 'error';
       case AlertType.Success:
-        return 'success';
+        return 'done';
       case AlertType.Warning:
         return 'warning';
       default:
