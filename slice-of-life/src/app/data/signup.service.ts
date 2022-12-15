@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { Config } from '../config'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,6 @@ export class SignupService {
     formData.append('first_name', user.first_name);
     formData.append('last_name', user.last_name);
   
-    return this.http.post('/api/v1/users/account/new', formData);
+    return this.http.post(environment.BASE_URL + '/api/v1/users/account/new', formData);
   }
 }
