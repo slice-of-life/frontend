@@ -24,6 +24,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { CommentComponent } from './UI/comment/comment.component';
 import { PostService } from './data/post.service';
 import { ThreadComponent } from './UI/thread/thread.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ThreadComponent } from './UI/thread/thread.component';
     SidebarComponent,
     PostComponent,
     CommentComponent,
-    ThreadComponent
+    ThreadComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
