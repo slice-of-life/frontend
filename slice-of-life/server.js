@@ -9,7 +9,7 @@ const port = process.env.PORT || 4200;
 
 app.use(express.static('dist/slice-of-life/'));
 
-app.get('/', function(req,res) {
+app.get('*', function(req,res) {
     res.sendFile(path.resolve('dist/slice-of-life/index.html'));
 });
 
