@@ -12,6 +12,8 @@ export class PostComponent implements OnInit {
   @Input() post: Post;
   showComments : boolean;
   thread : CommentThread[];
+  isLoading: boolean;
+
   constructor(private postService : PostService) {}
 
   ngOnInit(): void {}
@@ -21,16 +23,26 @@ export class PostComponent implements OnInit {
   }
 
   openComments(){
-    this.getComments(this.post.post_id);
     this.showComments = true;
+    this.getComments(this.post.post_id);
 
   }
 
   getComments(post_id : number){
-    this.postService.getComments(post_id).subscribe(
-      (data : any) => {
+    this.isLoading = true;
+    this.postService.getComments(post_id).subscribe({
+      next : (data : any) => {
         this.thread = data.threads;
+        this.isLoading = false;
+        console.log(this.thread)
+      },
+      error : (error) => {
+
+      },
+      complete : () => {
+        this.isLoading = false;
       }
+    }
     )
   }
   

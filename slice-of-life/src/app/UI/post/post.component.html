@@ -24,10 +24,18 @@
     <button mat-button class="btn" (click)="openComments()"> <mat-icon>comment</mat-icon>COMMENT</button>
     <button mat-button class="btn"><mat-icon>share</mat-icon> SHARE</button>
   </mat-card-actions>
-  <div *ngIf="showComments && this.thread">
+  <div *ngIf="showComments">
     <mat-card-footer >
       <hr>
-      <thread [threads]="this.thread"></thread>
+      <div *ngIf="isLoading" class="center">
+        <mat-spinner ></mat-spinner>
+      </div>
+      <thread *ngIf="this.thread && this.thread.length > 0" [threads]="this.thread"></thread>
+      <div class="center" *ngIf="!isLoading && this.thread.length === 0">
+        <p>
+          No Comments yet. Be the first to comment!
+        </p>
+      </div>
     </mat-card-footer>
   </div>
 </mat-card>
