@@ -23,9 +23,11 @@ export class PostComponent implements OnInit {
   }
 
   openComments(){
-    this.showComments = true;
-    this.getComments(this.post.post_id);
-
+    this.showComments = !this.showComments;
+    if(this.showComments) {
+      this.thread = [];
+      this.getComments(this.post.post_id);
+    }
   }
 
   getComments(post_id : number){
@@ -34,7 +36,6 @@ export class PostComponent implements OnInit {
       next : (data : any) => {
         this.thread = data.threads;
         this.isLoading = false;
-        console.log(this.thread)
       },
       error : (error) => {
 
