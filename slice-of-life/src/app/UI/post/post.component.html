@@ -25,8 +25,8 @@
     <button mat-button class="btn"><mat-icon>share</mat-icon> SHARE</button>
   </mat-card-actions>
   <div *ngIf="showComments && this.thread">
-    <hr>
     <mat-card-footer >
+      <hr>
       <thread [threads]="this.thread"></thread>
     </mat-card-footer>
   </div>

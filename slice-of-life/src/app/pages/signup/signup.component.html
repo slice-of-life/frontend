@@ -1,0 +1,62 @@
+<home></home>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Sign Up to Slice of Life</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+<form [formGroup]="signupForm" class="form" (ngSubmit)="signupUser()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="Pat" required 
+      formControlName="firstName"
+      />
+      <mat-error *ngIf="signupForm.get('firstName').invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Smtih" required
+      formControlName="lastName"/>
+      <mat-error *ngIf="signupForm.get('lastName').invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Handle</mat-label>
+      <input matInput placeholder="pat_smith123" required 
+      formControlName="handle"/>
+      <mat-error *ngIf="signupForm.get('handle').invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="" required 
+      formControlName="password"/>
+      <mat-error *ngIf="signupForm.get('password').invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" placeholder="" required 
+      formControlName="confirmPassword"/>
+      <mat-error *ngIf="signupForm.get('confirmPassword').invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        formControlName="email"
+        required
+      />
+      <mat-error *ngIf="signupForm.get('email').invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-card-actions>
+      <button [disabled]="!signupForm.valid" mat-raised-button color="primary" type="submit">Sign Up</button>
+    </mat-card-actions>
+</form>
+<alert *ngIf="responseType && responseMessage" [alertType]="responseType" [alertMessage]="responseMessage"></alert>
+</mat-card-content>
+</mat-card>

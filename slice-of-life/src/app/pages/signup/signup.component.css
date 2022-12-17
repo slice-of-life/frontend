@@ -1,0 +1,16 @@
+
+  mat-card {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    margin-top: 3%;
+  }
+  mat-form-field {
+    display: block;
+  }
+
+mat-card-actions {
+  text-align: left;
+  margin-left : 1%;
+}
+

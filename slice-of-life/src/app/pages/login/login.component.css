@@ -1,0 +1,27 @@
+a:link {
+  text-decoration: underline;
+  color: #58a6ff;
+}
+a:visited {
+  text-decoration: underline;
+  color: #58a6ff;
+}
+
+mat-card {
+  max-width: 250px;
+  margin: auto;
+  margin-top: 3%;
+}
+
+mat-card-footer {
+  padding-bottom : 10px;
+  text-align: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}

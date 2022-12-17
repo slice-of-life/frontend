@@ -9,10 +9,10 @@ import { Comment } from 'src/app/models/comment.model'
 export class ThreadComponent implements OnInit {
   @Input() threads : CommentThread[];
   comments : Comment[];
+  @Input() depth: number;
+
   constructor() { }
 
   ngOnInit(): void {  
-    this.comments = this.threads.map((thread) => thread.comment);
   }
-
 }

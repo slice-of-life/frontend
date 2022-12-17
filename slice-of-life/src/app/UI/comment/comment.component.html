@@ -1,28 +1,27 @@
-<div class="parent">
+<div class="parent" [style.margin-left.px]="depth * 16">
   <div class="div1">
-    <div mat-card-avatar class="example-header-image"  [ngStyle]="{
-        'background-image': 'url(' + thread.comment.comment_by.profile_pic + ')'
-      }"></div>
+    <div
+      mat-card-avatar
+      class="example-header-image"
+      [ngStyle]="{
+        'background-image': 'url(' + comment.comment_by.profile_pic + ')'
+      }"
+    ></div>
   </div>
   <div class="div2">
-    <b>@{{thread.comment.comment_by.handle}}</b
-    ><br />{{thread.comment.free_text}}<br />
-    <a href="#">Reply    </a><a id="viewReplies" (click)="showReplies=true;" href="#">View Replies</a>
+    <b>@{{ comment.comment_by.handle }}</b
+    ><br />{{ comment.free_text }}<br />
+    <a>Reply </a
+    ><a
+      *ngIf="responses && responses.length > 0"
+      href=""
+      id="viewReplies"
+      (click)="handleReplies($event)"
+      >View Replies</a
+    >
   </div>
 </div>
-<div *ngIf="showReplies">
-    <div class="parent response" *ngFor="let response of thread.responses">
-        <div class="div1">
-          <div mat-card-avatar class="example-header-image"  [ngStyle]="{
-            'background-image': 'url(' + response.comment.comment_by.profile_pic + ')'
-          }"></div>
-        </div>
-        <div class="div2">
-          <b>@{{response.comment.comment_by.handle}}</b
-          ><br />{{response.comment.free_text}}<br />
-          <a href="#">Reply    </a><a id="viewReplies" href="#">View Replies</a>
-        </div>
-      </div>
-</div>
 
-  
+<div *ngIf="showReplies && responses && responses.length > 0">
+  <thread [threads]="responses" [depth]="depth + 1"></thread>
+</div>

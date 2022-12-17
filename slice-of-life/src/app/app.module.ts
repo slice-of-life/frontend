@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatInputModule} from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,14 +17,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { FeedService } from './data/feed.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
 
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CommentComponent } from './UI/comment/comment.component';
 import { PostService } from './data/post.service';
 import { ThreadComponent } from './UI/thread/thread.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LoginService } from './data/login.service';
+import { SignupService } from './data/signup.service';
+import { HomeComponent } from './pages/home/home.component';
+import { AlertComponent } from './UI/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +40,16 @@ import { ThreadComponent } from './UI/thread/thread.component';
     SidebarComponent,
     PostComponent,
     CommentComponent,
-    ThreadComponent
+    ThreadComponent,
+    LoginComponent,
+    SignupComponent,
+    HomeComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule, 
     MatSidenavModule,
@@ -45,14 +58,17 @@ import { ThreadComponent } from './UI/thread/thread.component';
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    MatFormFieldModule,
     FormsModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule
     
   ],
-  providers: [FeedService, PostService],
+  providers: [FeedService, PostService, LoginService, SignupService, 
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
