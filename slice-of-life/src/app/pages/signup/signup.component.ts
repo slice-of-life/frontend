@@ -48,7 +48,7 @@ export class SignupComponent implements OnInit {
 
         },
         error: (error : HttpErrorResponse) => {
-          this.responseMessage = error.status === 401 ? 'Handle not available, please try another handle.' : error.statusText;
+          this.responseMessage = error.status === 401 ? 'Handle not available, please try another handle.' : `Received error: ${error.statusText}`;
           this.responseType = AlertType.Failure;
         },  
       });
