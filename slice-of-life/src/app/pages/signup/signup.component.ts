@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
   httpCode: HttpStatusCode;
   responseType : AlertType;
   responseMessage : string;
-
+  loading : boolean = false;
   constructor(private signupService: SignupService) {}
 
   ngOnInit(): void {}
@@ -33,6 +33,7 @@ export class SignupComponent implements OnInit {
     return 'You must enter a value';
   }
   signupUser() {
+    this.loading = true;
     this.signupService
       .createUser({
         handle: this.signupForm.get('handle').value,
@@ -49,8 +50,9 @@ export class SignupComponent implements OnInit {
         },
         error: (error : HttpErrorResponse) => {
           this.responseMessage = error.status === 401 ? 'Handle not available, please try another handle.' : `Received error: ${error.statusText}`;
-          this.responseType = AlertType.Failure;
-        },  
-      });
+          this.responseType = AlertType.Warning;
+          this.loading = false;
+        }
+      }).add(() => this.loading = false)
   }
 }
