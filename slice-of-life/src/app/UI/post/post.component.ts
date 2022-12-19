@@ -11,6 +11,7 @@ import { CommentThread } from 'src/app/models/comment-thread.model';
 export class PostComponent implements OnInit {
   @Input() post: Post;
   showComments : boolean;
+  favorited : boolean;
   thread : CommentThread[];
   isLoading: boolean;
 
@@ -45,6 +46,10 @@ export class PostComponent implements OnInit {
       }
     }
     )
+  }
+
+  favoritePost() {
+    this.favorited = !this.favorited;
   }
   
 }
