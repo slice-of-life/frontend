@@ -32,6 +32,7 @@ import { LoginService } from './data/login.service';
 import { SignupService } from './data/signup.service';
 import { HomeComponent } from './pages/home/home.component';
 import { AlertComponent } from './UI/alert/alert.component';
+import { IconComponent } from './UI/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AlertComponent } from './UI/alert/alert.component';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    AlertComponent
+    AlertComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,

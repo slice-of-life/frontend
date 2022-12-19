@@ -28,3 +28,16 @@ a:active {
   text-decoration: none;
   color: black;
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 500,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
+.fill {
+  font-variation-settings: 'FILL' 1;
+}

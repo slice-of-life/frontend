@@ -7,23 +7,23 @@
         >
         <div class="mat-title">
           <mat-list-item
-            ><button mat-icon-button><mat-icon>home</mat-icon></button
+            ><button mat-icon-button><icon [fill]="true">home</icon></button
             ><a href="#">Home</a></mat-list-item
           >
           <mat-list-item
-            ><button mat-icon-button><mat-icon>feed</mat-icon></button
+            ><button mat-icon-button><icon [fill]="true">feed</icon></button
             ><a href="#">Feed</a></mat-list-item
           >
           <mat-list-item
-            ><button mat-icon-button><mat-icon>person</mat-icon></button
+            ><button mat-icon-button><icon [fill]="true">person</icon></button
             ><a href="#">Profile</a></mat-list-item
           >
           <mat-list-item *ngIf="loggedIn" id="bottom"
-            ><button mat-icon-button><mat-icon>exit_to_app</mat-icon></button
+            ><button mat-icon-button><icon>exit_to_app</icon></button
             ><a href="/login">Logout</a></mat-list-item
           >
           <mat-list-item *ngIf="!loggedIn" id="bottom"
-          ><button mat-icon-button><mat-icon>login</mat-icon></button
+          ><button mat-icon-button><icon>login</icon></button
           ><a href="/login">Log In</a></mat-list-item
         >
         </div>
