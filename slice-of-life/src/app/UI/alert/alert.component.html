@@ -1,6 +1,6 @@
     <div [ngClass]="'alert alert-' + getAlertTypeString()" >
         <div class="alert-icon">
-          <icon [fill]="true">{{ getAlertIconString() }}</icon>
+          <icon [fill]="true" [color]="'white'">{{ getAlertIconString() }}</icon>
         </div>
         <div  class="alert-message">
             {{alertMessage}}
