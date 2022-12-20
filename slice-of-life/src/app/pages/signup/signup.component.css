@@ -1,16 +1,25 @@
 
-  mat-card {
-    max-width: 400px;
-    margin: auto;
-    text-align: center;
-    margin-top: 3%;
-  }
-  mat-form-field {
-    display: block;
-  }
-
-mat-card-actions {
-  text-align: left;
-  margin-left : 1%;
+mat-card {
+  max-width: 250px;
+  margin: auto;
+  text-align: center;
+  margin-top: 3%;
 }
-
+mat-form-field {
+  display: block;
+}
+button {
+  width : 85%;
+}
+a:link {
+  text-decoration: underline;
+  color: #58a6ff;
+}
+a:visited {
+  text-decoration: underline;
+  color: #58a6ff;
+}
+mat-card-footer {
+  padding-bottom : 10px;
+  text-align: center;
+}
