@@ -18,11 +18,11 @@ export class SignupComponent implements OnInit {
   unavailableHandles : String[] = [];
 
   signupForm = this.fb.group({
-    email: ['', [Validators.email, Validators.required]],
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    handle: ['', Validators.required],
-    password: ['', Validators.required],
+    email: ['', [Validators.email, Validators.required, Validators.maxLength(50)]],
+    firstName: ['', [Validators.required, Validators.maxLength(30)]],
+    lastName: ['', [Validators.required, Validators.maxLength(30)]],
+    handle: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]],
+    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(40)]],
     confirmPassword: ['', Validators.required],
     
   });
@@ -33,11 +33,15 @@ export class SignupComponent implements OnInit {
 
   getErrorMessage(controlName: string) {
     const control = this.signupForm.get(controlName);
+    console.log(control)
     if (control.hasError('email')) {
       return 'Invalid email address.';
     } 
+    else if(control.hasError('minlength')){
+      return `Must be at least ${control.errors['minlength'].requiredLength} characters`;
+    }
     else if (control.hasError('maxlength')) {
-      return 'Maximum of 40 characters allowed.';
+      return `Maximum of ${control.errors['maxlength'].requiredLength} characters allowed.`;
     } 
     else if (control.hasError('confirm')) {
       return 'Password does not match above.';
