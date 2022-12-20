@@ -33,7 +33,6 @@ export class SignupComponent implements OnInit {
 
   getErrorMessage(controlName: string) {
     const control = this.signupForm.get(controlName);
-    console.log(control)
     if (control.hasError('email')) {
       return 'Invalid email address.';
     } 
