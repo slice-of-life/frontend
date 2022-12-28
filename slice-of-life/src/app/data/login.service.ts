@@ -40,6 +40,6 @@ export class LoginService {
   }
 
   getUserInfo() : Observable<any> {
-    return this.http.get(`${environment.BASE_URL}/api/v1/users/${this.getUserHandle()}/profile`, { headers : { 'x-auth-token' : this.getJwt()}})
+    return this.http.get(`${environment.BASE_URL}/api/v1/users/${this.getUserHandle()}/profile`)
   }
 }
