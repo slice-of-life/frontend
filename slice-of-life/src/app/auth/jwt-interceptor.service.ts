@@ -16,11 +16,11 @@ export class JwtInterceptor implements HttpInterceptor {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       // If there is a JWT, attach it to the header of the request
-      request = request.clone({
-        setHeaders: {
-          'x-auth-token': jwt
-        }
-      });
+    //   request = request.clone({
+    //     setHeaders: {
+    //       'x-auth-token': jwt
+    //     }
+    //   });
     }
     return next.handle(request);
   }
