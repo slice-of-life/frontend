@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this.loginService.login(this.login.get('handle').value, this.login.get('password').value).subscribe(
       {
-        next : () => {
-          this.loginService.setUserHandle(this.login.get('handle').value);
+        next : (response) => {
+          this.loginService.setJwt(response['token']);
         },
         error : () => {
           this.loading = false;

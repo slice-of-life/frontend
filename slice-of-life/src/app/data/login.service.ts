@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Config } from '../config';
 import { Observable } from 'rxjs';
+import jwt_decode from 'jwt-decode';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,14 +19,27 @@ export class LoginService {
     return this.http.post(Config.BASE_URL + '/api/v1/users/authenticate', formData);
   }
 
-  setUserHandle(handle : string) {
-    localStorage.setItem('handle', handle);
+  setJwt(jwt : string) {
+    localStorage.setItem('jwt', jwt);
   }
-  private getUserHandle() : String | null {  
-    return localStorage.getItem('handle');
+  private getJwt() : string | null {  
+    return localStorage.getItem('jwt');
+  }
+
+  private getUserHandle() : string | null{
+    if(this.getJwt()){
+      try{
+        const decoded = jwt_decode(this.getJwt())
+        return decoded['handle'];
+      }
+      catch(error){
+        console.log(error.message)
+      }
+    }
+    return null;
   }
 
   getUserInfo() : Observable<any> {
-    return this.http.get(`${Config.BASE_URL}/api/v1/users/${this.getUserHandle()}/profile`, { withCredentials : true})
+    return this.http.get(`${Config.BASE_URL}/api/v1/users/${this.getUserHandle()}/profile`, { headers : { 'x-auth-token' : this.getJwt()}})
   }
 }
