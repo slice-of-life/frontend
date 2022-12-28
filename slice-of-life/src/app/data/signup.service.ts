@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { User } from '../models/user.model';
-import { environment } from 'src/environments/environment';
+import { Config } from '../config';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class SignupService {
     formData.append('password', user.password);
     formData.append('first_name', user.first_name);
     formData.append('last_name', user.last_name);
-  
-    return this.http.post(environment.BASE_URL + '/api/v1/users/account/new', formData);
+    const BASE_URL = isDevMode() ? Config.MOCK_BASE_URL : Config.BASE_URL;
+    return this.http.post(BASE_URL + '/api/v1/users/account/new', formData);
   }
 }
