@@ -37,12 +37,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-  logUserInfo() {
-    this.loginService.getUserInfo().subscribe(
-      (response) => {
-        console.log(response);
-      }
-    );
-  }
 }
