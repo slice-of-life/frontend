@@ -7,7 +7,7 @@
   </h1> 
   <mat-card-content>
   <form [formGroup]="login" class="form" (ngSubmit)="loginUser()">
-    <mat-form-field appearance="outline">
+    <mat-form-field class="extend" appearance="outline">
       <mat-label>Handle</mat-label>
       <input
         matInput
@@ -21,7 +21,7 @@
       }}</mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field class="extend" appearance="outline">
       <mat-label>Password</mat-label>
       <input
         matInput
@@ -36,6 +36,7 @@
     </mat-form-field>
 
   <button
+    class="extend"
     [disabled]="!login.valid"
     mat-raised-button
     color="primary"
@@ -51,5 +52,3 @@
     <span>New to Slice of Life? <a routerLink="/signup">Create an Account</a>.</span>
   </mat-card-footer>
 </mat-card>
-
-
