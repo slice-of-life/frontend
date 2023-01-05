@@ -13,7 +13,7 @@ import { MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './UI/sidebar/sidebar.component';
 import { PostComponent } from './UI/post/post.component';
 import {MatCardModule} from '@angular/material/card';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FeedService } from './data/feed.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -33,6 +33,7 @@ import { SignupService } from './data/signup.service';
 import { HomeComponent } from './pages/home/home.component';
 import { AlertComponent } from './UI/alert/alert.component';
 import { IconComponent } from './UI/icon/icon.component';
+import { JwtInterceptor } from './auth/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import { IconComponent } from './UI/icon/icon.component';
     MatInputModule
     
   ],
-  providers: [FeedService, PostService, LoginService, SignupService, 
+  providers: [FeedService, PostService, LoginService, SignupService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } 
 ],
   bootstrap: [AppComponent]
 })

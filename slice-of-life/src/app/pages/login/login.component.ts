@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/data/login.service';
 
 @Component({
@@ -8,8 +9,8 @@ import { LoginService } from 'src/app/data/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private loginService : LoginService) { }
+  loading: boolean;
+  constructor(private loginService : LoginService, private router : Router) { }
   login = new FormGroup({
     handle : new FormControl('', [Validators.required]),
   
@@ -22,7 +23,18 @@ export class LoginComponent implements OnInit {
     return 'You must enter a value';;
   }
   loginUser() {
-    console.log("logging in");
-    this.loginService.login('handle', 'password');
+    this.loginService.login(this.login.get('handle').value, this.login.get('password').value).subscribe(
+      {
+        next : (response) => {
+          this.loginService.setJwt(response['token']);
+        },
+        error : () => {
+          this.loading = false;
+        },
+        complete : () => {
+          this.loading = false;
+        }
+      }
+    );
   }
 }
