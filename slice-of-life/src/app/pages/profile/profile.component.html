@@ -1,0 +1,21 @@
+<sidebar>
+    <div *ngIf="user" class="center">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Profile
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="split">
+                    <img  [src]="user.profile_pic" alt="">
+                    <mat-list>
+                        <mat-list-item><b>Name: &nbsp;</b>{{ user.first_name + " " + user.last_name}}</mat-list-item>
+                        <mat-list-item><b>Handle: &nbsp;</b>{{ user.handle}}</mat-list-item>
+                    </mat-list>         
+                </div>
+                 
+            </mat-card-content>
+        </mat-card>
+    </div>
+</sidebar>
