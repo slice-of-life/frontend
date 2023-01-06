@@ -3,56 +3,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Config } from '../config';
 import { Observable } from 'rxjs';
-import jwt_decode from 'jwt-decode';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  constructor(private http: HttpClient) {}
-
-  private userLoggedIn : string;
-  login(handle: string, password: string) {
+  constructor(private http: HttpClient, private authService : AuthService) {}
+  login(handle: string, password: string) : Observable<any> {
     const formData = new FormData();
     formData.append('handle', handle);
     formData.append('password', password);
     return this.http.post(Config.BASE_URL + '/api/v1/users/authenticate', formData);
   }
-
-  setJwt(jwt : string) {
-    localStorage.setItem('jwt', jwt);
-  }
-  private getJwt() : string | null {  
-    return localStorage.getItem('jwt');
-  }
-
-  private getUserHandle() : string | null{
-    if(this.getJwt()){
-      try{
-        const decoded = jwt_decode(this.getJwt())
-        return decoded['handle'];
-      }
-      catch(error){
-        console.log(error.message)
-      }
-    }
-    return null;
-  }
-
-  isAuthValid() : boolean {
-    if(this.getJwt()){
-      const decoded = jwt_decode(this.getJwt())
-      const expireDate = decoded['exp'];
-      const currentTime = Date.now() / 1000;
-      return currentTime < expireDate;
-    }
-    return false;
-  }
-
   logOut() {
-    localStorage.removeItem('jwt');
+    this.authService.logOut();
   } 
-  getUserInfo() : Observable<any> {
-    return this.http.get(`${environment.BASE_URL}/api/v1/users/${this.getUserHandle()}/profile`, {headers : {'x-auth-token' : this.getJwt()}})
-  }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 import { LoginService } from 'src/app/data/login.service';
 import { AlertType } from 'src/app/UI/alert/alert.enum';
 
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   loading: boolean;
   responseType: AlertType;
   responseMessage: string;
-  constructor(private loginService : LoginService, private router : Router) { }
+  constructor(private loginService : LoginService, private router : Router, private authService : AuthService) { }
   login = new FormGroup({
     handle : new FormControl('', [Validators.required]),
   
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.login.get('handle').value, this.login.get('password').value).subscribe(
       {
         next : (response) => {
-          this.loginService.setJwt(response['token']);
+          this.authService.setJwt(response['token']);
         },
         error : () => {
           this.loading = false;
