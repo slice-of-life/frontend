@@ -39,6 +39,19 @@ export class LoginService {
     return null;
   }
 
+  isAuthValid() : boolean {
+    if(this.getJwt()){
+      const decoded = jwt_decode(this.getJwt())
+      const expireDate = decoded['exp'];
+      const currentTime = Date.now() / 1000;
+      return currentTime < expireDate;
+    }
+    return false;
+  }
+
+  logOut() {
+    localStorage.removeItem('jwt');
+  } 
   getUserInfo() : Observable<any> {
     return this.http.get(`${environment.BASE_URL}/api/v1/users/${this.getUserHandle()}/profile`, {headers : {'x-auth-token' : this.getJwt()}})
   }

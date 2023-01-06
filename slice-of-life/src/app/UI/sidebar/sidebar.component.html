@@ -18,9 +18,9 @@
             ><button mat-icon-button><icon [fill]="true">person</icon></button
             ><a href="#">Profile</a></mat-list-item
           >
-          <mat-list-item *ngIf="loggedIn" id="bottom"
+          <mat-list-item *ngIf="loggedIn" id="bottom" (click)="logOut()"
             ><button mat-icon-button><icon>exit_to_app</icon></button
-            ><a href="/login">Logout</a></mat-list-item
+            ><a href="/login">Log Out</a></mat-list-item
           >
           <mat-list-item *ngIf="!loggedIn" id="bottom"
           ><button mat-icon-button><icon>login</icon></button

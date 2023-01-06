@@ -6,6 +6,7 @@
     Sign in to Slice of Life
   </h1> 
   <mat-card-content>
+    <alert *ngIf="responseMessage" [alertMessage]="responseMessage" [alertType]="responseType"></alert>
   <form [formGroup]="login" class="form" (ngSubmit)="loginUser()">
     <mat-form-field class="extend" appearance="outline">
       <mat-label>Handle</mat-label>
@@ -37,12 +38,12 @@
 
   <button
     class="extend"
-    [disabled]="!login.valid"
+    [disabled]="!login.valid || loading"
     mat-raised-button
     color="primary"
     type="submit"
   >
-    Sign In
+    {{ loading ? "Signing in..." : "Sign in" }}
   </button>
   
   </form>
