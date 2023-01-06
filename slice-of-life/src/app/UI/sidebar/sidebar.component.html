@@ -2,30 +2,46 @@
   <mat-sidenav class="sidebar" mode="side" disableClose opened>
     <div class="sidebar-contents">
       <mat-list>
-        <mat-list-item
-          ><div class="mat-headline">Slice of Life</div></mat-list-item
-        >
+        <mat-list-item>
+          <div class="mat-headline">Slice of Life</div>
+        </mat-list-item>
         <div class="mat-title">
-          <mat-list-item
-            ><button mat-icon-button><icon [fill]="true">home</icon></button
-            ><a href="#">Home</a></mat-list-item
-          >
-          <mat-list-item
-            ><button mat-icon-button><icon [fill]="true">feed</icon></button
-            ><a href="#">Feed</a></mat-list-item
-          >
-          <mat-list-item
-            ><button mat-icon-button><icon [fill]="true">person</icon></button
-            ><a href="#">Profile</a></mat-list-item
-          >
-          <mat-list-item *ngIf="loggedIn" id="bottom" (click)="logOut()"
-            ><button mat-icon-button><icon>exit_to_app</icon></button
-            ><a href="/login">Log Out</a></mat-list-item
-          >
-          <mat-list-item *ngIf="!loggedIn" id="bottom"
-          ><button mat-icon-button><icon>login</icon></button
-          ><a href="/login">Log In</a></mat-list-item
-        >
+          <mat-list-item><button mat-button>
+              <a routerLink="/" routerLinkActive="active">
+                <icon [fill]="true">home</icon> Home
+              </a>
+            </button>
+          </mat-list-item>
+          <mat-list-item><button mat-button>
+              <a routerLink="/" routerLinkActive="active">
+                <icon [fill]="true">feed</icon> Feed
+              </a>
+            </button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button>
+              <a routerLink="/profile" routerLinkActive="active">
+                <icon [fill]="true">person</icon>
+                Profile
+              </a>
+            </button>
+          </mat-list-item>
+          <mat-list-item *ngIf="loggedIn" id="bottom" (click)="logOut()">
+          <button mat-button>
+            <a routerLink="/login"
+              routerLinkActive="active">
+              <icon>exit_to_app</icon>
+              Log Out
+            </a>
+          </button>
+        </mat-list-item>
+          <mat-list-item *ngIf="!loggedIn" id="bottom"><button mat-button><a routerLink="/login"
+                routerLinkActive="active">
+                <icon>login</icon>
+                Log In
+              </a>
+            </button>
+          </mat-list-item>
         </div>
       </mat-list>
     </div>

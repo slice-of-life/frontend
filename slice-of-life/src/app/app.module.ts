@@ -34,6 +34,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { AlertComponent } from './UI/alert/alert.component';
 import { IconComponent } from './UI/icon/icon.component';
 import { JwtInterceptor } from './auth/jwt-interceptor.service';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { JwtInterceptor } from './auth/jwt-interceptor.service';
     SignupComponent,
     HomeComponent,
     AlertComponent,
-    IconComponent
+    IconComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,7 @@ import { JwtInterceptor } from './auth/jwt-interceptor.service';
     MatInputModule
     
   ],
-  providers: [FeedService, PostService, LoginService, SignupService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } 
+  providers: [FeedService, PostService, LoginService, SignupService, AuthService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } 
 ],
   bootstrap: [AppComponent]
 })

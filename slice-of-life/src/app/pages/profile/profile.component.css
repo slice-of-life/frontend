@@ -1,0 +1,22 @@
+mat-card {
+    width: 50%;
+}
+
+.center {
+    padding-top : 3%;
+    display: grid;
+    justify-items: center;
+}
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .split {
+    display: flex;
+  }
+  img {
+    width : 100%;
+    max-width: 125px;
+    border-radius: 50%;
+  }
