@@ -20,10 +20,8 @@ export class JwtInterceptor implements HttpInterceptor {
       if(!this.authService.isAuthValid()){
         return new Observable<HttpEvent<any>>();
       }
-      request.clone({
-        setHeaders: {
-          'x-auth-token': this.authService.getJwt()
-        }
+      request = request.clone({
+          headers : request.headers.set('x-auth-token', this.authService.getJwt())
       })
     }
     return next.handle(request);
