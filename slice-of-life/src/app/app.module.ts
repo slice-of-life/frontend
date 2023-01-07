@@ -38,6 +38,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthService } from './auth/auth.service';
 import { TasklistComponent } from './UI/tasklist/tasklist.component';
 import { TaskComponent } from './UI/task/task.component';
+import { TaskPageComponent } from './pages/task-page/task-page.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { TaskComponent } from './UI/task/task.component';
     IconComponent,
     ProfileComponent,
     TasklistComponent,
-    TaskComponent
+    TaskComponent,
+    TaskPageComponent
   ],
   imports: [
     BrowserModule,
