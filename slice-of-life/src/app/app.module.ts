@@ -39,6 +39,7 @@ import { AuthService } from './auth/auth.service';
 import { TasklistComponent } from './UI/tasklist/tasklist.component';
 import { TaskComponent } from './UI/task/task.component';
 import { TaskPageComponent } from './pages/task-page/task-page.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
