@@ -77,7 +77,8 @@ import {MatTableModule} from '@angular/material/table';
     MatGridListModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
     
   ],
   providers: [FeedService, PostService, LoginService, SignupService, AuthService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } 
