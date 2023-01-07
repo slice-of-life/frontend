@@ -36,6 +36,8 @@ import { IconComponent } from './UI/icon/icon.component';
 import { JwtInterceptor } from './auth/jwt-interceptor.service';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthService } from './auth/auth.service';
+import { TasklistComponent } from './UI/tasklist/tasklist.component';
+import { TaskComponent } from './UI/task/task.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { AuthService } from './auth/auth.service';
     HomeComponent,
     AlertComponent,
     IconComponent,
-    ProfileComponent
+    ProfileComponent,
+    TasklistComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
