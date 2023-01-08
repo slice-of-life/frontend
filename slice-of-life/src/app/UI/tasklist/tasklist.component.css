@@ -1,3 +1,7 @@
 td.mat-cell, th.mat-header-cell {
     padding-right : 15px;
 }
+
+mat-card {
+    margin-bottom : 25px;
+}
