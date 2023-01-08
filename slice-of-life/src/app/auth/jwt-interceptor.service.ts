@@ -12,7 +12,7 @@ import { AuthService } from './auth.service';
     providedIn: 'root'
 })
 export class JwtInterceptor implements HttpInterceptor {
-  protectedRoutes = ['/profile']
+  protectedRoutes = ['/profile', '/tasklist']
   constructor(private authService : AuthService) {  }
   intercept(request: HttpRequest<any>, next: HttpHandler) : Observable<HttpEvent<any>> {
     // Check to see if the route is protected 

@@ -36,6 +36,9 @@ import { IconComponent } from './UI/icon/icon.component';
 import { JwtInterceptor } from './auth/jwt-interceptor.service';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthService } from './auth/auth.service';
+import { TasklistComponent } from './UI/tasklist/tasklist.component';
+import { TaskPageComponent } from './pages/task-page/task-page.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,9 @@ import { AuthService } from './auth/auth.service';
     HomeComponent,
     AlertComponent,
     IconComponent,
-    ProfileComponent
+    ProfileComponent,
+    TasklistComponent,
+    TaskPageComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,8 @@ import { AuthService } from './auth/auth.service';
     MatGridListModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
     
   ],
   providers: [FeedService, PostService, LoginService, SignupService, AuthService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } 

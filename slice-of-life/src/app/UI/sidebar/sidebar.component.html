@@ -26,6 +26,14 @@
               </a>
             </button>
           </mat-list-item>
+          <mat-list-item>
+            <button mat-button>
+              <a routerLink="/tasks" routerLinkActive="active">
+                <icon [fill]="true">task</icon>
+                Tasks
+              </a>
+            </button>
+          </mat-list-item>
           <mat-list-item *ngIf="loggedIn" id="bottom" (click)="logOut()">
           <button mat-button>
             <a routerLink="/login"
