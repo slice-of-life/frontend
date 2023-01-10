@@ -1,0 +1,3 @@
+<button mat-button (click)="this.onClick.emit()"  [ngStyle]="{  'font-size' : (fontSize * 0.85) + 'px' }">
+    <icon [fill]="iconFill" [size]="fontSize">{{ iconName }}</icon> {{ buttonLabel }}
+</button>

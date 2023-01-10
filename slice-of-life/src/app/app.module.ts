@@ -40,6 +40,7 @@ import { TasklistComponent } from './UI/tasklist/tasklist.component';
 import { TaskPageComponent } from './pages/task-page/task-page.component';
 import {MatTableModule} from '@angular/material/table';
 import { NewPostComponent } from './pages/new-post/new-post.component';
+import { ButtonIconComponent } from './UI/button-icon/button-icon.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
     ProfileComponent,
     TasklistComponent,
     TaskPageComponent,
-    NewPostComponent
+    NewPostComponent,
+    ButtonIconComponent
   ],
   imports: [
     BrowserModule,
