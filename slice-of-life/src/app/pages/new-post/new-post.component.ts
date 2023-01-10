@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PostService } from 'src/app/data/post.service';
 
 @Component({
   selector: 'new-post',
@@ -14,7 +15,7 @@ export class NewPostComponent implements OnInit {
     taskID : ['']
   });
 
-  constructor(private fb: FormBuilder, private router :Router) { }
+  constructor(private fb: FormBuilder, private router :Router, private postService : PostService) { }
 
   ngOnInit(): void {
   }
@@ -26,10 +27,13 @@ export class NewPostComponent implements OnInit {
     if (event.target.files && event.target.files.length) {
         this.sliceImage  = event.target.files[0];
     }
-    console.log(this.sliceImage)
 }
 
   submit() {
-    
+    this.postService.postCreatePost(this.postForm.get('taskID').value, this.postForm.get('caption').value, this.sliceImage)
+    .subscribe({
+      next: (response) => {
+    }
+  });
   }
 }
