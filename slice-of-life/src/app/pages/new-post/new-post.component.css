@@ -1,0 +1,30 @@
+
+mat-card {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    margin-top: 3%;
+  }
+  mat-form-field {
+    display: block;
+  }
+  button {
+    width : 95%;
+  }
+
+  .image-input {
+    text-align: left;
+    margin: 20px 0 20px 0 ;
+  }
+  .block-label {
+    display : block;
+    font-size : 1.25rem;
+    padding-bottom: 10px;
+  }
+
+  mat-card-title {
+    text-align: left;
+  }
+  #task {
+    width: 20%;
+  }
