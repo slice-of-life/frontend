@@ -39,6 +39,7 @@ import { AuthService } from './auth/auth.service';
 import { TasklistComponent } from './UI/tasklist/tasklist.component';
 import { TaskPageComponent } from './pages/task-page/task-page.component';
 import {MatTableModule} from '@angular/material/table';
+import { NewPostComponent } from './pages/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {MatTableModule} from '@angular/material/table';
     IconComponent,
     ProfileComponent,
     TasklistComponent,
-    TaskPageComponent
+    TaskPageComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
