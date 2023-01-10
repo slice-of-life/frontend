@@ -1,1 +1,27 @@
-<p>new-post works!</p>
+<sidebar>
+    <mat-card>
+            <mat-card-title>Create a Post</mat-card-title>
+
+        <mat-card-content>
+            <form [formGroup]="postForm" class="form" (ngSubmit)="submit()">
+                <div class="image-input">
+                    <mat-label class="block-label">Upload an Image</mat-label>
+                    <input (change)="onFileChange($event)" type="file"  accept="image/*">
+                </div>
+                <mat-form-field id="task"  appearance="outline">
+                    <mat-label>Task ID</mat-label>
+                    <input type="number"  min="1" matInput placeholder="Ex: 2" formControlName="taskID">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Caption</mat-label>
+                    <textarea matInput placeholder="Ex: Just completed a task." formControlName="caption"></textarea>
+                </mat-form-field>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" type="submit">
+                        Create Post
+                    </button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</sidebar>
