@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FeedComponent } from './pages/feed/feed.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NewPostComponent } from './pages/new-post/new-post.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { TaskPageComponent } from './pages/task-page/task-page.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: '', component: FeedComponent},
   { path: 'profile', component: ProfileComponent },
-  { path: 'tasks', component: TaskPageComponent}
+  { path: 'tasks', component: TaskPageComponent},
+  { path: 'new-post', component: NewPostComponent }
 ];
 
 @NgModule({

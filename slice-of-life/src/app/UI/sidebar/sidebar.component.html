@@ -5,52 +5,15 @@
         <mat-list-item>
           <div class="mat-headline">Slice of Life</div>
         </mat-list-item>
-        <div class="mat-title">
-          <mat-list-item><button mat-button>
-              <a routerLink="/" routerLinkActive="active">
-                <icon [fill]="true">home</icon> Home
-              </a>
-            </button>
-          </mat-list-item>
-          <mat-list-item><button mat-button>
-              <a routerLink="/" routerLinkActive="active">
-                <icon [fill]="true">feed</icon> Feed
-              </a>
-            </button>
-          </mat-list-item>
-          <mat-list-item>
-            <button mat-button>
-              <a routerLink="/profile" routerLinkActive="active">
-                <icon [fill]="true">person</icon>
-                Profile
-              </a>
-            </button>
-          </mat-list-item>
-          <mat-list-item>
-            <button mat-button>
-              <a routerLink="/tasks" routerLinkActive="active">
-                <icon [fill]="true">task</icon>
-                Tasks
-              </a>
-            </button>
-          </mat-list-item>
-          <mat-list-item *ngIf="loggedIn" id="bottom" (click)="logOut()">
-          <button mat-button>
-            <a routerLink="/login"
-              routerLinkActive="active">
-              <icon>exit_to_app</icon>
-              Log Out
-            </a>
-          </button>
+        <mat-list-item *ngFor="let nav of navItems">
+          <button-icon (onClick)="navigateToPage(nav.path)" [iconName]="nav.iconName" [iconFill]="nav.fill ? false : true" [buttonLabel]="nav.buttonLabel" [fontSize]="25"></button-icon>
         </mat-list-item>
-          <mat-list-item *ngIf="!loggedIn" id="bottom"><button mat-button><a routerLink="/login"
-                routerLinkActive="active">
-                <icon>login</icon>
-                Log In
-              </a>
-            </button>
+          <mat-list-item *ngIf="loggedIn" id="bottom">
+            <button-icon [iconName]="'logout'" (onClick)="logOut()" [iconFill]="true" [buttonLabel]="'Log Out'" [fontSize]="25"></button-icon>
+        </mat-list-item>
+          <mat-list-item *ngIf="!loggedIn" id="bottom">
+            <button-icon [iconName]="'login'" (onClick)="navigateToPage('login')" [iconFill]="true" [buttonLabel]="'Log In'" [fontSize]="25"></button-icon>
           </mat-list-item>
-        </div>
       </mat-list>
     </div>
   </mat-sidenav>
